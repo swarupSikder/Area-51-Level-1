@@ -22,14 +22,31 @@
     <header class="max-w-7xl m-auto">
         <nav class="flex justify-between m-2">
             <div class="bg-white rounded-full shadow-md border-gray-300 border-1">
-                <img src="./images/logo.png" class="h-auto w-24" alt="" srcset="">
+                <img src="./images/logo.png" class="h-auto w-16 lg:w-24" alt="" srcset="">
             </div>
 
-            <ul class="flex items-center justify-evenly space-x-2">
-                <li class="bg-white text-gray-600 px-4 py-2 shadow-md rounded-md hover:cursor-pointer hover:bg-blue-300 hover:text-white">হোম</li>
-                <li>টুর্নামেন্ট</li>
-                <li>ট্রান্সফার-উইন্ডো</li>
-                <button type="button" class="bg-blue-300 px-4 py-2 shadow-md rounded-md hover:cursor-pointer">একাউন্ট খুলুন</button>
+            <ul class="flex items-center justify-evenly gap-2 text-[10px] sm:text-sm md:text-base lg:text-base">
+                <li
+                    class="bg-blue-400 text-white px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-white hover:text-gray-600 transition">
+                    হোম
+                </li>
+
+                <li
+                    class="bg-white text-gray-600 px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 hover:text-white transition">
+                    টুর্নামেন্ট
+                </li>
+
+                <li
+                    class="bg-white text-gray-600 px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 hover:text-white transition">
+                    ট্রান্সফার-উইন্ডো
+                </li>
+
+                <li>
+                    <button type="button"
+                        class="bg-amber-600 text-white px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 transition">
+                        একাউন্ট খুলুন
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -42,7 +59,63 @@
     <!--        -->
     <!--  Main  -->
     <!--        -->
-    <main></main>
+    <main>
+
+        <!--                -->
+        <!--  Hero Section  -->
+        <!--                -->
+        <section class="relative max-w-5xl mx-auto w-full overflow-hidden mt-8">
+
+            <h2 class="text-amber-600 text-center text-lg lg:text-3xl my-4">
+                আমাদের ইতিহাস
+            </h2>
+
+            <div id="slides"
+                class="flex transition-transform duration-700 ease-in-out rounded-xlm-4">
+
+                <div class="min-w-full px-2">
+                    <img src="./images/banner_1.png" alt="Banner 1" class="w-full border-2 border-gray-400 rounded-lg">
+                </div>
+
+                <div class="min-w-full px-2">
+                    <img src="./images/banner_2.png" alt="Banner 2" class="w-full border-2 border-gray-400 rounded-lg">
+                </div>
+
+                <div class="min-w-full px-2">
+                    <img src="./images/banner_3.png" alt="Banner 3" class="w-full border-2 border-gray-400 rounded-lg">
+                </div>
+
+                <div class="min-w-full px-2">
+                    <img src="./images/banner_4.png" alt="Banner 4" class="w-full border-2 border-gray-400 rounded-lg">
+                </div>
+
+            </div>
+        </section>
+
+        <script>
+            let currentSlide = 0;
+
+            function autoSlide() {
+                currentSlide++;
+
+                if (currentSlide === 4) {
+                    currentSlide = 0;
+                }
+
+                document.getElementById("slides").style.transform =
+                    `translateX(-${currentSlide * 100}%)`;
+            }
+
+            setInterval(autoSlide, 5000);
+        </script>
+
+
+
+
+
+
+
+    </main>
 
 
 
