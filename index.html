@@ -19,37 +19,155 @@
     <!--          -->
     <!--  Header  -->
     <!--          -->
-    <header class="max-w-7xl m-auto">
-        <nav class="flex justify-between m-2">
-            <div class="bg-white rounded-full shadow-md border-gray-300 border-1">
-                <img src="./images/logo.png" class="h-auto w-16 lg:w-24" alt="" srcset="">
+    <header class="max-w-7xl mx-auto">
+        <nav class="flex items-center justify-between m-2">
+
+            <!-- Logo -->
+            <div class="bg-white rounded-full shadow-md border border-gray-300">
+                <img src="./images/logo.png" class="h-auto w-16 lg:w-24" alt="Logo">
             </div>
 
-            <ul class="flex items-center justify-evenly gap-2 text-[10px] sm:text-sm md:text-base lg:text-base">
-                <li
-                    class="bg-blue-400 text-white px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-white hover:text-gray-600 transition">
-                    হোম
-                </li>
 
-                <li
-                    class="bg-white text-gray-600 px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 hover:text-white transition">
-                    টুর্নামেন্ট
-                </li>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center justify-evenly gap-2 text-base">
 
-                <li
-                    class="bg-white text-gray-600 px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 hover:text-white transition">
-                    ট্রান্সফার-উইন্ডো
+                <li>
+                    <a href="#" class="block bg-blue-400 text-white px-4 py-2
+                           border border-gray-200 shadow-sm rounded-md
+                           hover:bg-white hover:text-gray-600 transition">
+                        হোম
+                    </a>
                 </li>
 
                 <li>
-                    <button type="button"
-                        class="bg-amber-600 text-white px-2 sm:px-4 py-2 border border-gray-200 shadow-sm rounded-md cursor-pointer hover:bg-blue-400 transition">
+                    <a href="#" class="block bg-white text-gray-600 px-4 py-2
+                           border border-gray-200 shadow-sm rounded-md
+                           hover:bg-blue-400 hover:text-white transition">
+                        টুর্নামেন্ট
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="block bg-white text-gray-600 px-4 py-2
+                           border border-gray-200 shadow-sm rounded-md
+                           hover:bg-blue-400 hover:text-white transition">
+                        ট্রান্সফার-উইন্ডো
+                    </a>
+                </li>
+
+                <li>
+                    <button type="button" class="bg-amber-600 text-white px-4 py-2
+                           border border-gray-200 shadow-sm rounded-md
+                           hover:bg-blue-400 transition">
                         একাউন্ট খুলুন
                     </button>
                 </li>
+
             </ul>
+
+
+            <!-- Mobile Menu Button -->
+            <button id="menuButton" type="button" class="md:hidden p-2 text-gray-700 hover:text-blue-500"
+                aria-label="Open menu">
+                <!-- Hamburger Icon -->
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
         </nav>
     </header>
+
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
+
+
+    <!-- Mobile Sidebar -->
+    <aside id="mobileMenu" class="fixed top-0 right-0 h-full w-72 max-w-[80%]
+           bg-white shadow-2xl z-50
+           translate-x-full transition-transform duration-300 ease-in-out">
+
+        <!-- Sidebar Header -->
+        <div class="flex items-center justify-between p-5 border-b">
+
+            <h2 class="text-xl font-bold text-blue-500">
+                মেনু
+            </h2>
+
+            <!-- Close Button -->
+            <button id="closeMenu" type="button" class="text-gray-600 hover:text-red-500" aria-label="Close menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+        </div>
+
+
+        <!-- Sidebar Menu Items -->
+        <ul class="flex flex-col gap-3 p-5">
+
+            <li>
+                <a href="#" class="block bg-blue-400 text-white px-4 py-3
+                       rounded-md hover:bg-blue-500 transition">
+                    হোম
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="block bg-gray-50 text-gray-700 px-4 py-3
+                       rounded-md hover:bg-blue-400 hover:text-white transition">
+                    টুর্নামেন্ট
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="block bg-gray-50 text-gray-700 px-4 py-3
+                       rounded-md hover:bg-blue-400 hover:text-white transition">
+                    ট্রান্সফার-উইন্ডো
+                </a>
+            </li>
+
+            <li>
+                <button type="button" class="w-full bg-amber-600 text-white px-4 py-3
+                       rounded-md hover:bg-amber-700 transition">
+                    একাউন্ট খুলুন
+                </button>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <script>
+        const menuButton = document.getElementById("menuButton");
+        const closeMenu = document.getElementById("closeMenu");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const overlay = document.getElementById("overlay");
+
+
+        // Open menu
+        menuButton.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full");
+            overlay.classList.remove("hidden");
+        });
+
+
+        // Close menu
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+
+        // Close when clicking overlay
+        overlay.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        });
+    </script>
 
 
 
@@ -277,6 +395,35 @@
                 </div>
             </div>
         </section>
+
+
+
+
+
+        <!--                  -->
+        <!--  Onfield Banner  -->
+        <!--                  -->
+        <section
+            class="relative mt-32 min-h-[400px] lg:min-h-[922px] bg-[url('./images/hero.png')] bg-cover bg-center flex flex-col items-center justify-center">
+            <div class="absolute inset-0 bg-black/40"></div>
+
+            <div class="relative z-10 text-center">
+                <h2 class="text-white text-2xl lg:text-4xl font-bold mb-6">
+                    এরিয়া-৫১ এর বর্তমান আউটফিল্ড
+                </h2>
+
+                <button type="button" class="bg-amber-500 hover:bg-amber-600 text-white
+                   font-semibold px-6 py-3 rounded-lg
+                   shadow-lg transition duration-300
+                   hover:scale-105">
+                    ঘুরে আসুন
+                </button>
+            </div>
+        </section>
+
+
+
+
 
 
 
